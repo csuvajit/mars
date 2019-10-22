@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "author": "SUVAJIT (suvajit.me@gmail.com)",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "test": "eslint --ext .js --ignore-path .gitignore .",
     "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
