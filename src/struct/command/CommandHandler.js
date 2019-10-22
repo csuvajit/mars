@@ -103,6 +103,11 @@ class CommandHandler extends Handler {
 			return { prefix, alias, content, afterPrefix };
 		}
 
+		if (command.ownerOnly && !this.client.isOwner(message.author.id)) {
+			this.emit('commandBlocked', message, command);
+			return { prefix, alias, content, afterPrefix };
+		}
+
 		return { command, prefix, alias, content, afterPrefix };
 	}
 

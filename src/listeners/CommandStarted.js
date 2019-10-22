@@ -10,7 +10,7 @@ class MessageEvent extends Listener {
 	}
 
 	async exec(message, command, args) {
-		this.client.logger.debug(message.id, command.id, args);
+		this.client.logger.debug([message.author.tag, command.id, args]);
 	}
 }
 

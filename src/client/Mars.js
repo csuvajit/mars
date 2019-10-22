@@ -39,6 +39,10 @@ class Mars extends Client {
 		this.listenerHandler.load();
 	}
 
+	isOwner(id) {
+		return id === process.env.OWNER;
+	}
+
 	async start() {
 		await this.init();
 		return this.login(process.env.TOKEN);
