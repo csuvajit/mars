@@ -1,4 +1,4 @@
-const { Collection } = require('discord.js');
+const Collection = require('./Collection');
 const firebase = require('firebase-admin');
 
 class Firestore extends Collection {
