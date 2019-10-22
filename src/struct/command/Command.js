@@ -5,7 +5,7 @@ class Command extends Handler {
 		aliases,
 		description = {},
 		category = 'default',
-		args = []
+		ownerOnly = false
 	} = {}) {
 		super(id, { category });
 
@@ -17,9 +17,9 @@ class Command extends Handler {
 
 		this.category = category;
 
-		this.categoryID = category;
+		this.ownerOnly = ownerOnly;
 
-		this.args = args;
+		this.categoryID = category;
 	}
 
 	exec() {
