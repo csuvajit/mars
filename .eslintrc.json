@@ -1,0 +1,11 @@
+{
+    "extends": "mars/node",
+    "rules": {
+        "linebreak-style": "off",
+        "no-unused-vars": "off",
+        "prefer-destructuring": "off",
+        "no-eq-null": "off",
+        "no-negated-condition": "off",
+        "radix": "off"
+    }
+}

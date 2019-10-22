@@ -1,0 +1,24 @@
+{
+  "name": "mars",
+  "version": "1.0.0",
+  "description": "My Personal Discord Bot",
+  "main": "src/index.js",
+  "author": "SUVAJIT (suvajit.me@gmail.com)",
+  "license": "MIT",
+  "scripts": {
+    "test": "eslint --ext .js --ignore-path .gitignore .",
+    "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "bufferutil": "^4.0.1",
+    "discord.js": "discordjs/discord.js",
+    "dotenv": "^8.2.0",
+    "libsodium-wrappers": "^0.7.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-mars": "^1.0.4"
+  }
+}
