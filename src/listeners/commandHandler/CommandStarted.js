@@ -1,4 +1,4 @@
-const Listener = require('../struct/listener/Listener');
+const Listener = require('../../struct/listener/Listener');
 
 class MessageEvent extends Listener {
 	constructor() {
