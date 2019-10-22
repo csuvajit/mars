@@ -15,7 +15,9 @@
     "bufferutil": "^4.0.1",
     "discord.js": "discordjs/discord.js",
     "dotenv": "^8.2.0",
-    "libsodium-wrappers": "^0.7.5"
+    "libsodium-wrappers": "^0.7.5",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
