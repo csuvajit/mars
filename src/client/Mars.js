@@ -3,6 +3,8 @@ const Logger = require('../util/Logger');
 const ListenerHandler = require('../struct/listener/ListenerHandler');
 const CommandHandler = require('../struct/command/CommandHandler');
 const path = require('path');
+const Settings = require('../struct/provider/Settings');
+const Database = require('../core/database/Database');
 
 class Mars extends Client {
 	constructor() {
@@ -15,14 +17,11 @@ class Mars extends Client {
 
 		this.commandHandler = new CommandHandler(this, {
 			directory: path.join(__dirname, '..', 'commands'),
-			prefix: message => {
-				if (message.guild) return '?';
-				return '';
-			},
+			prefix: message => this.settings.get(message.guild, 'prefix', '?'),
 			commandUtil: true,
 			handleEdits: true,
-			commandUtilLifetime: 10000,
-			commandUtilSweepInterval: 10000
+			lifeTime: 3e5,
+			sweepInterval: 6e5
 		});
 
 		this.listenerHandler = new ListenerHandler(this, {
@@ -31,6 +30,10 @@ class Mars extends Client {
 	}
 
 	async init() {
+		this.db = new Database(this);
+		this.settings = new Settings(this.db.firestore.collection('mars_settings'));
+
+
 		this.listenerHandler.setEmitters({
 			commandHandler: this.commandHandler,
 			listenerHandler: this.listenerHandler

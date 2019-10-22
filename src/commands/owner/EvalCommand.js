@@ -13,7 +13,7 @@ class EvalCommand extends Command {
 
 	async exec(message, code) {
 		try {
-			const evaled = eval(code); // eslint-disable-line
+			const evaled = eval(code); // eslint-disable-line no-eval
 			const arg = util.inspect(evaled, { depth: 0 });
 			return message.util.send(`${arg}`, { code: 'js' });
 		} catch (error) {

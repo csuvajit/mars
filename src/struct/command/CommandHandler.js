@@ -5,8 +5,8 @@ const { Collection } = require('discord.js');
 class CommandHandler extends Handler {
 	constructor(client, {
 		directory,
-		commandUtilSweepInterval = 6e5,
-		commandUtilLifetime = 3e5,
+		sweepInterval = 6e5,
+		lifeTime = 3e5,
 		commandUtil = true,
 		handleEdits = true,
 		prefix = '?'
@@ -25,12 +25,12 @@ class CommandHandler extends Handler {
 
 		this.commandUtils = new Collection();
 
-		this.commandUtilLifetime = commandUtilLifetime;
+		this.lifeTime = lifeTime;
 
-		this.commandUtilSweepInterval = commandUtilSweepInterval;
+		this.sweepInterval = sweepInterval;
 
-		if (this.commandUtilSweepInterval > 0) {
-			this.client.setInterval(() => this.sweepCommandUtil(), this.commandUtilSweepInterval);
+		if (this.sweepInterval > 0) {
+			this.client.setInterval(() => this.sweepCommandUtil(), this.sweepInterval);
 		}
 
 		if (this.handleEdits && !this.commandUtil) {
@@ -120,7 +120,7 @@ class CommandHandler extends Handler {
 		}
 	}
 
-	sweepCommandUtil(lifetime = this.commandUtilLifetime) {
+	sweepCommandUtil(lifetime = this.lifeTime) {
 		let count = 0;
 		for (const { message } of this.commandUtils.values()) {
 			if (Date.now() - (message.editedTimestamp || message.createdTimestamp) > lifetime) {
