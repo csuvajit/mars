@@ -17,7 +17,7 @@ class CommandUtil {
 
 	setLastResponse(message) {
 		if (Array.isArray(message)) {
-			this.lastResponse = message.slice(-1)[0]; // eslint-disable-line
+			this.lastResponse = message.slice(-1)[0];
 		} else {
 			this.lastResponse = message;
 		}

@@ -20,9 +20,9 @@ class Mars extends Client {
 				return '';
 			},
 			commandUtil: true,
+			handleEdits: true,
 			commandUtilLifetime: 10000,
-			commandUtilSweepInterval: 10000,
-			handleEdits: true
+			commandUtilSweepInterval: 10000
 		});
 
 		this.listenerHandler = new ListenerHandler(this, {
