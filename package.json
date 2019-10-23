@@ -11,7 +11,6 @@
     "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
     "start": "node src/index.js"
   },
-  "keywords": [],
   "dependencies": {
     "bufferutil": "^4.0.1",
     "discord.js": "discordjs/discord.js",
